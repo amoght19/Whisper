@@ -1,0 +1,26 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  -webkit-text-size-adjust: 100%;
+  --text-color: black;
+  --form-bg-color: #FDFCFD;
+  --grad-start-color: #DB31F1;
+  --grad-end-color: #BC3DF2;
+  --room-heading-color: #8B1874;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.dark-mode {
+  --text-color: #fff;
+  --form-bg-color: #111111;
+  --grad-end-color: #323236;
+  --grad-start-color: #3F3F40;
+  --room-heading-color: #C49D78;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}

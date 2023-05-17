@@ -1,0 +1,71 @@
+.icon {
+    color: var(--room-heading-color);
+    width: 1.5rem !important;
+    height: auto !important;
+}
+
+.settings {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    background-color: var(--form-bg-color);
+    border-radius: 0.65rem;
+    transition: 0.5s ease-in-out;
+    border: 1px solid var(--text-color);
+}
+
+.settings:hover {
+    box-shadow: 0 2px 2px var(--grad-start-color), 0 0 20px;
+}
+
+.SlidingMenu {
+    position: absolute;
+    width: 200px;
+    right: 30px;
+    top: 30px;
+    background-color: var(--form-bg-color);
+    border: none;
+    border-radius: 1rem;
+    background-color: var(--form-bg-color);
+    box-shadow: 0 2px 2px var(--grad-start-color), 0 0 20px;
+    z-index: 9999999999999999;
+}
+
+.list_items {
+    color: var(--text-color);
+    list-style: none;
+}
+
+.item {
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    padding: 0.5rem 0.5rem 0.5rem 1rem;
+}
+
+.person {
+    border-top: 1px solid var(--text-color);
+}
+
+.dark {
+    border-top: 1px solid var(--text-color);
+    border-bottom: 1px solid var(--text-color);
+}
+
+.closing_button {
+    color: red !important;
+    background-color: var(--form-bg-color);
+}
+
+@media screen and (min-width:800px) {
+    .settings {
+        right: 25px;
+        top: 25px;
+        border-radius: 1rem;
+    }
+
+    .icon {
+        width: 2rem !important;
+        height: auto !important;
+    }
+}

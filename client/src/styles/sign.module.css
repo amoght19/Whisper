@@ -1,0 +1,78 @@
+.page_container {
+  background: linear-gradient(135deg, var(--grad-start-color), var(--grad-end-color));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  min-width: 100vw;
+}
+
+.app_name {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 3rem;
+  color: var(--text-color);
+  text-align: center;
+}
+
+.form_container {
+  padding-inline: 1rem;
+  padding-block: 2.5rem;
+  background-color: var(--form-bg-color);
+  max-width: 600px;
+  border-radius: 2rem;
+  border: 1px solid var(--text-color);
+}
+
+.image_container {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+.eye_image {
+  display: block;
+  width: 100%;
+  margin-block: auto;
+  height: auto;
+  object-fit: cover;
+}
+
+.input {
+  margin-top: 1.5rem;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  display: block;
+  margin-inline: auto;
+  background-color: var(--grad-start-color);
+  transition: all 0.2s ease-in-out;
+  border: 2px solid var(--text-color);
+  color: var(--text-color);
+  opacity: 0.75;
+}
+
+.input:focus {
+  outline: none;
+  box-shadow: inset 0 2px 2px var(--grad-start-color), 0 0 10px;
+}
+
+.input::placeholder {
+  color: var(--text-color);
+}
+
+.button {
+  display: block;
+  margin-inline: auto;
+  padding: 8px 7px;
+  width: 80px;
+  border-radius: 5px;
+  background-color: var(--grad-start-color);
+  margin-top: 1rem;
+  color: var(--text-color);
+}
+
+.button:hover {
+  box-shadow: inset 0 2px 2px var(--grad-start-color), 0 0 10px;
+}
