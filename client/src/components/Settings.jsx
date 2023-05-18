@@ -1,15 +1,22 @@
+//React Imports
 import React from "react";
+import { useState } from "react";
+
+//Context
+import { useUser } from "../Context/UserProvider";
+
+//Component
+import ChangeUsername from "./ChangeUsername";
+
+//Styles and Icons
 import SettingsIcon from "@mui/icons-material/Settings";
 import styles from "../styles/Settings.module.css";
-import { useState } from "react";
-import { useUser } from "../Context/UserProvider";
 import CloseIcon from "@mui/icons-material/Close";
 import PersonIcon from "@mui/icons-material/Person";
 import WbSunnyIcon from "@mui/icons-material/WbSunny";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import MusicOffIcon from "@mui/icons-material/MusicOff";
 import MusicNoteIcon from "@mui/icons-material/MusicNote";
-import ChangeUsername from "./ChangeUsername";
 
 const Settings = () => {
   const [isOpen, setIsOpen] = useState(false);

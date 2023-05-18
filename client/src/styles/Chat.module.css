@@ -6,16 +6,6 @@
     width: 100vw;
 }
 
-.form {
-    position: absolute;
-    bottom: 15px;
-    left: 50%;
-    margin-inline: auto;
-    transform: translate(-50%, 0%);
-    background-color: var(--form-bg-color);
-    display: flex;
-}
-
 .heading {
     padding-top: 3rem;
     text-align: center;
@@ -32,28 +22,98 @@
     margin-bottom: 100px;
     border-radius: 0.3rem;
     /* to adjust scrolling of container*/
-    display: flexbox;
     flex-direction: column;
     justify-content: center;
     overflow-y: auto;
     scrollbar-width: none !important;
     -ms-overflow-style: none !important;
     height: calc(100% - 200px);
+    border: 1px solid var(--text-color);
 }
 
 .message {
     color: var(--text-color);
-    text-align: left;
+    max-width: 40%;
+    overflow-wrap: break-word;
+    font-size: 1rem;
+    margin-right: auto;
+    background-color: var(--grad-start-color);
+    padding: 0.4rem;
+    border-radius: 0.5rem;
+    margin-block: 0.5rem;
+    display: block;
 }
 
 .user_message {
     color: var(--text-color);
-    text-align: right;
+    max-width: 40%;
+    overflow-wrap: break-word;
+    font-size: 1rem;
+    margin-left: auto;
+    background-color: var(--grad-end-color);
+    padding: 0.4rem;
+    border-radius: 0.5rem;
+    margin-block: 0.5rem;
 }
+
+.join_message {
+    color: var(--text-color);
+    font-size: 0.5rem;
+    overflow-wrap: break-word;
+    margin-left: auto;
+    background-color: var(--grad-end-color);
+    padding: 0.4rem;
+    border-radius: 0.5rem;
+    margin-block: 0.5rem;
+    text-align: center;
+}
+
+.form_container {
+    width: calc(80%);
+    height: 30px;
+    margin: 0 auto;
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    margin-inline: auto;
+    transform: translate(-50%, 0%);
+    background-color: transparent;
+    border-radius: 0.3rem;
+}
+
+.form {
+    display: flex;
+    justify-content: space-between;
+    height: 30px;
+    background-color: var(--form-bg-color);
+    border-radius: 0.3rem;
+    margin: 0;
+    padding: 0;
+}
+
+.input {
+    width: 100%;
+    border: 1px solid var(--text-color);
+    background-color: var(--form-bg-color);
+    border-radius: 0.3rem 0 0 0.3rem;
+    color: var(--text-color);
+    padding-inline: 0.5rem;
+}
+
+.button {
+    height: 30px;
+    width: 30px;
+    padding: 0.2rem;
+    border-radius: 0 0.3rem 0.3rem 0;
+    border: 1px solid var(--text-color);
+    background-color: var(--form-bg-color);
+    color: var(--text-color);
+}
+
 
 @media screen and (min-width:800px) {
     .chat_container {
         margin-top: 20px;
-        margin-inline: 80px;
+        margin-inline: 12rem;
     }
 }

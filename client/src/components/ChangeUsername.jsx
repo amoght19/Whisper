@@ -1,5 +1,10 @@
+//React imports
 import React, { useState } from "react";
+
+//Context
 import { useUser } from "../Context/UserProvider";
+
+//Styles
 import styles from "../styles/ChangeUsername.module.css";
 
 const ChangeUsername = ({ setIsUsernameToBeChanged }) => {

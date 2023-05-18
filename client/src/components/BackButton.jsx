@@ -1,7 +1,10 @@
+//React imports
 import React from "react";
+import { useNavigate } from "react-router-dom";
+
+//Styles and Icons
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import styles from "../styles/BackButton.module.css";
-import { useNavigate } from "react-router-dom";
 
 const BackButton = () => {
   const navigate = useNavigate();

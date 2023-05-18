@@ -8,6 +8,7 @@ import { useUser } from "./Context/UserProvider";
 function App() {
   const { darkMode } = useUser();
 
+  //Useffect for dark Mode Changes
   useEffect(() => {
     if (darkMode) {
       document.documentElement.classList.add("dark-mode");

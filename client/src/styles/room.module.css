@@ -10,6 +10,11 @@
 
 .page_container>div:first-child {
     margin-bottom: 5rem;
+    margin-top: 5rem;
+}
+
+.page_container>div:last-child {
+    margin-bottom: 3rem;
 }
 
 .form {
@@ -31,6 +36,7 @@
     padding: 2rem;
     border-radius: 10px;
     box-shadow: 0 2px 2px var(--grad-start-color), 0 0 10px;
+    border: 1px solid var(--text-color);
 }
 
 .input {
@@ -82,8 +88,15 @@
 
     .page_container>div:first-child {
         margin-right: 5rem;
+        margin-top: 0;
         margin-bottom: 0;
     }
+
+
+    .page_container>div:last-child {
+        margin-bottom: 0rem;
+    }
+
 
     .heading {
         font-size: 3.2rem;

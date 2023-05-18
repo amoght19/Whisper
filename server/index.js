@@ -3,6 +3,7 @@
 const app = require("express")();
 const server = require("http").createServer(app);
 const cors = require("cors");
+const roomPasswordHash = new Map();
 
 const io = require("socket.io")(server, {
   cors: {
@@ -18,17 +19,26 @@ io.on("connection", (socket) => {
     console.log("Client disconnected ", socket.id);
   });
 
-  socket.on("room join", async ({ username, roomJoined }) => {
+  socket.on("room join", async ({ username, roomJoined, password }) => {
+    const roomPassword = roomPasswordHash.get(roomJoined);
     let roomNumber = roomJoined;
-    socket.join(roomNumber);
-    socket.to(roomNumber).emit("new user joined", {
-      username: username,
-    });
+
+    console.log("roomPassword=", roomPassword);
+    console.log("userPasword=", password);
+    if (roomPassword == password) {
+      socket.join(roomNumber);
+      socket.to(roomNumber).emit("new user joined", {
+        username: username,
+      });
+      socket.emit("successful join", { roomJoined });
+    } else {
+      socket.emit("wrong password");
+    }
 
     console.log(`${username} joined in ${roomNumber}`);
   });
 
-  socket.on("room create", async ({ roomJoined, username }) => {
+  socket.on("room create", async ({ roomJoined, username, password }) => {
     let roomNumber = roomJoined;
     let roomUsers = await io.in(roomNumber).fetchSockets();
 
@@ -39,7 +49,7 @@ io.on("connection", (socket) => {
       socket.to(roomNumber).emit("new user joined", {
         username: username,
       });
-
+      roomPasswordHash.set(roomJoined, password);
       socket.emit("room available");
     }
   });
@@ -50,6 +60,11 @@ io.on("connection", (socket) => {
       username: username,
     });
     console.log("message: " + msg, roomNumber);
+  });
+
+  socket.on("leave room", ({ username, room }) => {
+    socket.to(room).emit("user left", { username });
+    socket.leave(room);
   });
 });
 
