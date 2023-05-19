@@ -18,7 +18,9 @@
     min-height: 50px;
     margin-inline: 20px;
     margin-top: 10px;
-    padding: 1rem;
+    padding-inline: 1rem;
+    padding-top: 1rem;
+    padding-bottom: 3rem;
     margin-bottom: 100px;
     border-radius: 0.3rem;
     /* to adjust scrolling of container*/
@@ -115,5 +117,6 @@
     .chat_container {
         margin-top: 20px;
         margin-inline: 12rem;
+        padding-bottom: 1rem;
     }
 }
