@@ -1,4 +1,4 @@
-// Chat.js
+// Chat.jsx
 
 //React imports
 import React, { useState, useEffect, useContext, useRef } from "react";
@@ -19,6 +19,10 @@ import SendIcon from "@mui/icons-material/Send";
 //Sounds
 import ReceivingSound from "./assets/receiving.mp3";
 import SendingSound from "./assets/sending.mp3";
+
+//Pages
+import Sign from "./Sign";
+import Room from "./room";
 
 const Chat = () => {
   const {
@@ -107,6 +111,14 @@ const Chat = () => {
       playAudio(sendingSoundRef);
     }
   };
+
+  if (username == "") {
+    return <Sign />;
+  }
+
+  if (roomJoined == "") {
+    return <Room />;
+  }
 
   return (
     <>

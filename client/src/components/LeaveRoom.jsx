@@ -1,3 +1,5 @@
+// LeaveRoom.jsx
+
 //React imports
 import React from "react";
 import { useNavigate } from "react-router-dom";

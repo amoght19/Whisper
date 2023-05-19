@@ -1,0 +1,21 @@
+.vanishingDiv {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #f1f1f1;
+    padding: 20px;
+    border-radius: 4px;
+    background-color: var(--form-bg-color);
+    border: 1px solid var(--text-color);
+    border-radius: 5px;
+    color: red;
+}
+
+.visible {
+    visibility: visible;
+}
+
+.hidden {
+    visibility: hidden;
+}

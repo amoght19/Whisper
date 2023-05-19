@@ -1,5 +1,7 @@
+//room.jsx
+
 //React imports
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 //Context
@@ -13,25 +15,35 @@ import styles from "./styles/room.module.css";
 import BackButton from "./components/BackButton";
 import Settings from "./components/Settings";
 import DimmedOverlay from "./components/DimmedOverlay";
+import Error from "./components/Error";
+
+//Pages
+import Sign from "./Sign";
 
 const Room = () => {
   const socket = useSocket();
   const [roomCreate, setRoomCreate] = useState("");
   const { roomJoined, setRoomJoined, username, dimmedBackground } = useUser();
+  const [roomWantedToJoin, setRoomWantedJoin] = useState("");
   const [createPassword, setCreatePassword] = useState("");
   const [joinPassword, setJoinPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+  const [isDivVisible, setIsDivVisible] = useState(false);
   const navigate = useNavigate();
+  let timer;
 
   const handleJoinRomm = (e) => {
     e.preventDefault();
-    if (roomJoined) {
+    if (roomWantedToJoin) {
       socket.emit("room join", {
-        roomJoined,
+        roomJoined: roomWantedToJoin,
         username,
         password: joinPassword,
       });
+      setRoomJoined(roomWantedToJoin);
     } else {
-      alert("Enter the room number");
+      setErrorMessage("Enter room number");
+      setIsDivVisible(true);
     }
   };
 
@@ -44,31 +56,46 @@ const Room = () => {
         password: createPassword,
       });
     } else {
-      alert("Enter the room number");
+      setErrorMessage("Enter the room number");
+      setIsDivVisible(true);
     }
   };
 
   const handleRoomTaken = () => {
     setRoomJoined("");
-    console.log("set the room");
-    alert("room already taken");
+    setErrorMessage("room already taken");
+    setIsDivVisible(true);
   };
 
   const handleRoomAvailable = () => {
-    console.log("cfeated=", roomCreate);
-
     navigate(`/room/${roomCreate}`);
     setRoomJoined(roomCreate);
   };
 
   const handleWrongPassword = () => {
-    alert("Wrong password, try again");
+    setErrorMessage("Wrong Password, please try again");
+    setIsDivVisible(true);
   };
 
   const handleSuccessfulJoin = ({ roomJoined }) => {
     setRoomJoined(roomJoined);
     navigate(`/room/${roomJoined}`);
   };
+
+  //UseEffect for errors
+  useEffect(() => {
+    if (isDivVisible && errorMessage) {
+      clearTimeout(timer);
+      console.log("error running");
+      timer = setTimeout(() => {
+        setIsDivVisible(false);
+      }, 800);
+
+      return () => {
+        clearTimeout(timer);
+      };
+    }
+  }, [errorMessage, isDivVisible]);
 
   //Useffect for all the events accociated with creation and joining of rooms
   useEffect(() => {
@@ -88,6 +115,10 @@ const Room = () => {
     handleWrongPassword,
     handleSuccessfulJoin,
   ]);
+
+  if (username == "") {
+    return <Sign />;
+  }
   return (
     <>
       <BackButton />
@@ -125,8 +156,8 @@ const Room = () => {
               <input
                 type="text"
                 placeholder="Enter room number"
-                value={roomJoined}
-                onChange={(e) => setRoomJoined(e.target.value)}
+                value={roomWantedToJoin}
+                onChange={(e) => setRoomWantedJoin(e.target.value)}
                 className={styles.input}
               />
               <input
@@ -144,6 +175,7 @@ const Room = () => {
         </div>
       </div>
       {dimmedBackground && <DimmedOverlay />}
+      {isDivVisible && <Error message={errorMessage} />}
     </>
   );
 };
