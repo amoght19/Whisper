@@ -64,7 +64,6 @@ const Chat = () => {
   };
 
   const handleUserLeft = ({ username }) => {
-    console.log(username, " left");
     setMessages((prev) => [
       ...prev,
       { msg: username + " has left the chat", left: true },

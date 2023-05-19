@@ -86,7 +86,6 @@ const Room = () => {
   useEffect(() => {
     if (isDivVisible && errorMessage) {
       clearTimeout(timer);
-      console.log("error running");
       timer = setTimeout(() => {
         setIsDivVisible(false);
       }, 800);
