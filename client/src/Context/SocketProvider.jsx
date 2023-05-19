@@ -14,7 +14,7 @@ export const useSocket = () => {
 //SocketProvider to wrap our component
 export const SocketProvider = (props) => {
   //Connecting to node server
-  const socket = io("http://localhost:3001");
+  const socket = io("https://whisper-wo62.onrender.com");
 
   return (
     <SocketContext.Provider value={socket}>
