@@ -1,8 +1,10 @@
 .page_conatiner {
     background: linear-gradient(135deg, var(--grad-start-color), var(--grad-end-color));
+    display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    min-height: 100vh;
     width: 100vw;
 }
 
@@ -15,13 +17,11 @@
 
 .chat_container {
     background-color: var(--form-bg-color);
-    min-height: 50px;
-    margin-inline: 20px;
-    margin-top: 10px;
-    padding-inline: 1rem;
-    padding-top: 1rem;
-    padding-bottom: 3rem;
-    margin-bottom: 100px;
+    width: 80%;
+    max-width: 600px;
+    margin-inline: auto;
+    margin-block: 1.5rem;
+    padding: 1rem;
     border-radius: 0.3rem;
     /* to adjust scrolling of container*/
     flex-direction: column;
@@ -29,7 +29,7 @@
     overflow-y: auto;
     scrollbar-width: none !important;
     -ms-overflow-style: none !important;
-    height: calc(100% - 200px);
+    height: 60vh;
     border: 1px solid var(--text-color);
 }
 
@@ -72,15 +72,10 @@
 
 .form_container {
     width: calc(80%);
-    height: 30px !important;
-    margin: 0 auto;
-    position: absolute !important;
-    bottom: 15px;
-    left: 50%;
-    margin-inline: auto;
-    transform: translate(-50%, 0%);
+    max-width: 600px;
     background-color: transparent;
     border-radius: 0.3rem;
+    margin-bottom: 1rem;
 }
 
 .form {

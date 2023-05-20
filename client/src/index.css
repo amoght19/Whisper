@@ -2,10 +2,10 @@
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   -webkit-text-size-adjust: 100%;
   --text-color: black;
-  --form-bg-color: #FDFCFD;
-  --grad-start-color: #DB31F1;
-  --grad-end-color: #BC3DF2;
-  --room-heading-color: #8B1874;
+  --form-bg-color: #FBFBFB;
+  --grad-start-color: #EEEFF2;
+  --grad-end-color: #D2E9E9;
+  --room-heading-color: #000;
 }
 
 * {
@@ -18,7 +18,7 @@
   --form-bg-color: #111111;
   --grad-end-color: #323236;
   --grad-start-color: #3F3F40;
-  --room-heading-color: #C49D78;
+  --room-heading-color: #fff;
 }
 
 ::-webkit-scrollbar {

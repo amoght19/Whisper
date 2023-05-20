@@ -143,20 +143,21 @@ const Chat = () => {
             )
           )}
         </div>
+        <div className={styles.form_container}>
+          <form onSubmit={handleSubmit} className={styles.form}>
+            <input
+              type="text"
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              className={styles.input}
+            />
+            <button type="submit" className={styles.button}>
+              <SendIcon />
+            </button>
+          </form>
+        </div>
       </div>
-      <div className={styles.form_container}>
-        <form onSubmit={handleSubmit} className={styles.form}>
-          <input
-            type="text"
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            className={styles.input}
-          />
-          <button type="submit" className={styles.button}>
-            <SendIcon />
-          </button>
-        </form>
-      </div>
+
       <Settings />
       <LeaveRoom />
       {dimmedBackground && <DimmedOverlay />}
