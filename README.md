@@ -1,6 +1,6 @@
 # Whisper 
 
-Whisper is a secure and private chat application that allows users to have secret conversations online. With Whisper, you can create chat rooms, join existing rooms, and engage in encrypted conversations, ensuring your messages remain confidential.
+Whisper is a secure and private chat application that allows users to have secret conversations online. With Whisper, you can create chat rooms, join existing rooms, and engage in conversations.
 
 The application is built using Node.js, Express.js, Socket.io, and React. It leverages the power of Socket.io to enable real-time communication between the server and clients, providing a seamless chat experience.
 
